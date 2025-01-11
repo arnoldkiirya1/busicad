@@ -50,3 +50,30 @@ uploads/staff_profile_images/
 uploads/tasks/
 uploads/tenants/
 uploads/ticket_attachments/
+
+# Ignore system files
+.DS_Store
+.htaccess
+
+# Ignore temp files
+temp/
+uploads/
+application/logs/
+
+# Node.js build files
+node_modules/
+package.json
+tailwind.config.js
+webpack.mix.js
+
+# Ignore other config or sensitive files
+application/config/*.php
+web.conf
+web.config
+
+# Ignore compiled assets
+assets/
+media/
+
+# Ignore README if unnecessary
+README.md
