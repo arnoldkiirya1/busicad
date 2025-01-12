@@ -12,7 +12,7 @@
               New Account
             </a>
             
-            <a href="<?php echo admin_url('accounting/accounts_import'); ?>" class="btn btn-success mbot15 <?php if(!has_permission('accounting_chart_of_accounts', '', 'create')){echo 'hide';} ?>"> <i class="fa-regular fa-upload tw-mr-1"></i><?php echo _l('import_account'); ?></a>
+            <a href="<?php echo admin_url('accounting/accounts_import'); ?>" class="btn btn-success mbot15 <?php if(!has_permission('accounting_chart_of_accounts', '', 'create')){echo 'hide';} ?>"> <i class="fa fa-upload" aria-hidden="true"></i><?php echo _l('import_account'); ?></a>
           </div>
           <div class="row">
             <div class="col-md-3">
