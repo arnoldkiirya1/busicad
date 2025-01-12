@@ -179,7 +179,6 @@
   </div>
 </div>
 <script>
-    $(document).ready(function() {
       $(document).ready(function() {
           var tAPI = initDataTable('#report', '', [0], [0], {
               "paging": true,
@@ -191,5 +190,4 @@
               }],
           });
       });
-    });
 </script>
