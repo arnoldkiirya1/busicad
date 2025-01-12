@@ -1,6 +1,6 @@
 <div id="accordion">
   <div class="">
-    <table class="tree" id ="report" class="table table-clients number-index-2 dataTable no-footer">
+    <table class="tree" id ="report" class="table number-index-2 dataTable no-footer">
       <tbody>
         <!-- <tr>
           <td colspan="5">
@@ -212,3 +212,8 @@
     </table>
   </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('#report').DataTable();
+    });
+</script>
