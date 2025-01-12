@@ -5,7 +5,18 @@
     <div class="row">
       <div class="panel_s">
         <div class="panel-body">
-          <h4 class="no-margin font-bold"><?php echo _l($title); ?></h4>
+        <p class="tw-font-semibold tw-flex tw-items-center tw-mb-0 tw-space-x-1.5 rtl:tw-space-x-reverse">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="tw-w-6 tw-h-6 tw-text-neutral-500">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M7.5 3.75h9m-9 3h9m-9 3h6m-6 3h9m-9 3h4.5m-6 3h12a2.25 2.25 0 002.25-2.25V5.25A2.25 2.25 0 0019.5 3H4.5a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 004.5 21z" />
+                            </svg>
+
+                            <span class="tw-text-neutral-700">
+                            <?php echo _l($title); ?>
+                            </span>
+          </p>
+         
           <hr />
           <div>
             <a href="<?php echo admin_url('accounting/new_journal_entry'); ?>" class="btn btn-info mbot15"><?php echo _l('add'); ?></a>
