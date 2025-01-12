@@ -12,9 +12,9 @@
                   d="M15.75 6.75l3 3-3 3m0-6H8.25a2.25 2.25 0 00-2.25 2.25v6M8.25 17.25l-3-3 3-3m0 6h7.5a2.25 2.25 0 002.25-2.25v-6" />
             </svg>
 
-            <span class="tw-text-neutral-700">
+            <h5 class="tw-text-neutral-700">
                <?php echo _l($title); ?>
-            </span>
+            </h5>
          </p>
           <hr />
           <div>
