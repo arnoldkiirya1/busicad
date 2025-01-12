@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-md-3">
                   <?php echo form_hidden('type', 'profit_and_loss_detail'); ?>
-                  <button type="submit" class="btn btn-info btn-submit mtop25"><?php echo _l('filter'); ?></button>
+                  <button type="submit" class="btn btn-primary btn-submit mtop25"><i class="fa fa-filter" aria-hidden="true"></i> <?php echo _l('filter'); ?></button>
                 </div>
               <?php echo form_close(); ?>
               </div>
