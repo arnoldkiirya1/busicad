@@ -1,6 +1,6 @@
 <div id="accordion">
   <div class="">
-    <table class="tree" id ="report" class="table table-client number-index-2 dataTable no-footer">
+    <table class="tree" id ="report" class="table table-report number-index-2 dataTable no-footer">
       <tbody>
         <!-- <tr>
           <td colspan="5">
@@ -214,6 +214,10 @@
 </div>
 <script>
     $(document).ready(function() {
-        $('#report').DataTable();
+      $(function() {
+          var tAPI = initDataTable('#report', '', [0], [0], {}, 
+              <?= hooks()->apply_filters('customers_table_default_order', json_encode([2, 'asc'])); ?>
+          );
+      });
     });
 </script>
