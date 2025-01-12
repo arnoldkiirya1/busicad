@@ -15,8 +15,15 @@
             <?php echo render_select('budget', $budgets, array('id', 'name'), 'budget', '', array(), array(), '', '', false); ?>
           </div>
           <div class=" col-md-6 pull-right">
-            <a href="<?php echo admin_url('accounting/budget_import'); ?>" class="btn btn-success mtop25 pull-right mleft5 <?php if(!has_permission('accounting_budget', '', 'create')){echo 'hide';} ?>"><?php echo _l('import_budget'); ?></a>
-            <a href="#" onclick="creating_a_budget(); return false;" class="px-0 btn btn-info mtop25 pull-right <?php if(!has_permission('accounting_budget', '', 'create')){echo 'hide';} ?>"><?php echo _l('new'); ?></a>
+            <a href="#" onclick="creating_a_budget(); return false;" class="btn btn-primary mtop25 <?php if(!has_permission('accounting_budget', '', 'create')){echo 'hide';} ?>">
+              <i class="fa-regular fa-plus tw-mr-1"></i>
+              New Budget
+            </a>
+            
+            <a href="<?php echo admin_url('accounting/budget_import'); ?>" class="btn btn-success mbot15 <?php if(!has_permission('accounting_budget', '', 'create')){echo 'hide';} ?>"> <i class="fa fa-upload" aria-hidden="true"></i> <?php echo _l('import_budget'); ?></a>
+
+           
+            
           </div>
         </div>
         <div id="div_data">
@@ -29,7 +36,7 @@
           <br>
           <br>
           <div class="budget-notifi hide">
-            <h4 class="text-danger"><?php echo _l('no_budget_has_been_created'); ?></h4>
+            <h5 class="text-danger"><?php echo _l('no_budget_has_been_created'); ?></h5>
           </div>
           <div id="workload"></div>
           <?php echo form_hidden('budget_data'); ?>
