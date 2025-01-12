@@ -5,10 +5,24 @@
     <div class="row">
       <div class="panel_s">
         <div class="panel-body">
-          <h4 class="no-margin font-bold"><?php echo _l($title); ?></h4>
+        <p class="tw-font-semibold tw-flex tw-items-center tw-mb-0 tw-space-x-1.5 rtl:tw-space-x-reverse">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+               stroke="currentColor" class="tw-w-6 tw-h-6 tw-text-neutral-500">
+               <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M15.75 6.75l3 3-3 3m0-6H8.25a2.25 2.25 0 00-2.25 2.25v6M8.25 17.25l-3-3 3-3m0 6h7.5a2.25 2.25 0 002.25-2.25v-6" />
+            </svg>
+
+            <span class="tw-text-neutral-700">
+               <?php echo _l($title); ?>
+            </span>
+         </p>
           <hr />
           <div>
-            <a href="#" class="btn btn-info add-new-transfer mbot15"><?php echo _l('add'); ?></a>
+          <a href="#" class="btn btn-primary add-new-transfer mbot15">
+            <i class="fa-regular fa-plus tw-mr-1"></i>
+            New Transfer
+          </a>
+
           </div>
           <div class="row">
             <div class="col-md-3">
