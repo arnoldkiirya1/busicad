@@ -1,6 +1,6 @@
 <div id="accordion">
   <div class="">
-    <table class="tree" id ="report">
+    <table class="tree" id ="report" class="table table-clients number-index-2 dataTable no-footer">
       <tbody>
         <!-- <tr>
           <td colspan="5">
