@@ -4,7 +4,7 @@
 <body class="tw-bg-neutral-100 login_admin">
 
     <div class="tw-max-w-md tw-mx-auto tw-pt-24 authentication-form-wrapper tw-relative tw-z-20">
-        <div class="company-logo text-center">
+        <div class="company-logo text-center" style="max-width: 170px; margin: 0 auto;">
         <div ><?php get_dark_company_logo(); ?></div>
         </div>
 
