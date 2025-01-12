@@ -1,5 +1,5 @@
 <div id="accordion">
-  <div class="card">
+  <div class="">
     <table class="tree">
       <tbody>
         <tr>
