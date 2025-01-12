@@ -19,7 +19,12 @@
          
           <hr />
           <div>
-            <a href="<?php echo admin_url('accounting/new_journal_entry'); ?>" class="btn btn-info mbot15"><?php echo _l('add'); ?></a>
+          <a href="<?php echo admin_url('accounting/new_journal_entry'); ?>"
+                            class="btn btn-primary">
+                            <i class="fa-regular fa-plus tw-mr-1"></i>
+                           New journal entry
+          </a>
+           
           </div>
           <div class="row">
             <div class="col-md-3">
