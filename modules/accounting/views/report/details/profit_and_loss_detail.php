@@ -178,16 +178,3 @@
     </table>
   </div>
 </div>
-<script>
-      $(document).ready(function() {
-          var tAPI = initDataTable('#report', '', [0], [0], {
-              "paging": true,
-              "searching": true,
-              "ordering": true,
-              "columnDefs": [{
-                  "targets": [0],  // Change if you want to sort on a different column
-                  "orderable": true
-              }],
-          });
-      });
-</script>
