@@ -10,6 +10,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- DataTables CSS -->
+    <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <!-- jQuery (necessary for DataTables and other JS functionality) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+
     <title>
         <?= $title ?? get_option('companyname'); ?>
     </title>
@@ -31,6 +41,7 @@
             _table_api;
     </script>
     <?php app_admin_head(); ?>
+    
 </head>
 
 <body <?= admin_body_class($bodyclass ?? ''); ?>>
