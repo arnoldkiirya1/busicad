@@ -8,7 +8,7 @@
       <div class="row">
        <div class="col-md-12">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">
             <p class="tw-font-semibold tw-flex tw-items-center tw-mb-0 tw-space-x-1.5 rtl:tw-space-x-reverse">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="tw-w-6 tw-h-6 tw-text-neutral-500">
@@ -22,7 +22,7 @@
               </p>
               <!-- <h4 class="no-margin font-bold"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?php echo _l('orders_are_about_to_be_delivered'); ?></h4> -->
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
              
               <a href="<?php echo admin_url('purchase/purchase_order'); ?>">
                     <?php echo _l('home_widget_view_all'); ?>
