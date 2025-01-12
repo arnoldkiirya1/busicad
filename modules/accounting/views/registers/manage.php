@@ -3,7 +3,7 @@
   <div class="content">
       <div class="panel_s">
         <div class="panel-body backdrop">
-          <h4 class="no-margin font-bold"><?php echo _l($title); ?></h4>
+          <h5 class="no-margin font-bold"><?php echo _l($title); ?></h5>
           <hr />
           <div class="row">
             <div class="col-md-3">
