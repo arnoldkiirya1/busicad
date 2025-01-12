@@ -16,9 +16,14 @@
                             </svg>
 
                             <span class="tw-text-neutral-700">
-                                <?php echo _l('home_payment_records'); ?>
+                                <?php echo _l('orders_are_about_to_be_delivered'); ?>
                             </span>
+
+                            <a href="<?php echo admin_url('purchase/purchase_order'); ?>" class="tw-ml-auto tw-text-blue-500 hover:tw-underline">
+                                <?php echo _l('view_all'); ?>
+                            </a>
                         </p>
+
                         <div
                             class="tw-divide-x tw-divide-solid tw-divide-neutral-300 tw-space-x-2 tw-flex tw-items-center">
 
