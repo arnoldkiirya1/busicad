@@ -1,7 +1,7 @@
 <div id="accordion">
   <div class="">
     <table class="tree" id ="report" >
-      <th class="tr_header">
+      <th>
           <td class="text-bold"><?php echo _l('invoice_payments_table_date_heading'); ?></td>
           <td class="text-bold"><?php echo _l('transaction_type'); ?></td>
           <td class="text-bold"><?php echo _l('description'); ?></td>
