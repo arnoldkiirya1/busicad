@@ -1,6 +1,6 @@
 <div id="accordion">
   <div class="">
-    <table class="tree">
+    <table class="tree" id ="report">
       <tbody>
         <!-- <tr>
           <td colspan="5">
