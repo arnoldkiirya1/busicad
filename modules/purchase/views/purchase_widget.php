@@ -23,7 +23,10 @@
               <!-- <h4 class="no-margin font-bold"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?php echo _l('orders_are_about_to_be_delivered'); ?></h4> -->
             </div>
             <div class="col-md-6">
-              <a href="<?php echo admin_url('purchase/purchase_order'); ?>" class="btn btn-info pull-right"><?php echo _l('view_all'); ?></a>
+             
+              <a href="<?php echo admin_url('purchase/purchase_order'); ?>">
+                    <?php echo _l('home_widget_view_all'); ?>
+                </a>
             </div>
           </div>
           <hr />
