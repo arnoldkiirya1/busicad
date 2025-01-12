@@ -71,10 +71,6 @@
 <!-- box loading -->
 <div id="box-loading"></div>
 <?php init_tail(); ?>
-<script>
-    $(document).ready(function() {
-        $('#report').DataTable();
-    });
-</script>
+
 </body>
 </html>

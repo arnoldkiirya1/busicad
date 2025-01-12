@@ -1,16 +1,19 @@
 <div id="accordion">
   <div class="">
-    <table class="tree" id ="report" >
-      <th>
-          <td class="text-bold"><?php echo _l('invoice_payments_table_date_heading'); ?></td>
-          <td class="text-bold"><?php echo _l('transaction_type'); ?></td>
-          <td class="text-bold"><?php echo _l('description'); ?></td>
-          <td class="text-bold"><?php echo _l('split'); ?></td>
-          <td class="total_amount text-bold"><?php echo _l('acc_amount'); ?></td>
-          <td class="total_amount text-bold"><?php echo _l('balance'); ?></td>
-        </th>
-      <tbody>
-        
+  <table class="tree" id="report" class="table table-report number-index-2 dataTable no-footer">
+      
+  <thead>
+        <tr class="tr_header">
+          <th class="text-bold"><?php echo _l('invoice_payments_table_date_heading'); ?></th>
+          <th class="text-bold"><?php echo _l('transaction_type'); ?></th>
+          <th class="text-bold"><?php echo _l('description'); ?></th>
+          <th class="text-bold"><?php echo _l('split'); ?></th>
+          <th class="total_amount text-bold"><?php echo _l('acc_amount'); ?></th>
+          <th class="total_amount text-bold"><?php echo _l('balance'); ?></th>
+        </tr>
+  </thead>
+  
+  <tbody>
         <tr class="treegrid-1000 parent-node expanded">
           <td class="parent"><?php echo _l('acc_ordinary_income_expenses'); ?></td>
           <td></td>
@@ -175,3 +178,18 @@
     </table>
   </div>
 </div>
+<script>
+    $(document).ready(function() {
+      $(document).ready(function() {
+          var tAPI = initDataTable('#report', '', [0], [0], {
+              "paging": true,
+              "searching": true,
+              "ordering": true,
+              "columnDefs": [{
+                  "targets": [0],  // Change if you want to sort on a different column
+                  "orderable": true
+              }],
+          });
+      });
+    });
+</script>

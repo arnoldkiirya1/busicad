@@ -25,6 +25,31 @@
     </title>
 
     <?= app_compile_css(); ?>
+
+    <style>
+        /* Add border to all cells */
+        #report th, #report td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        /* Add alternating row colors */
+        #report tbody tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        #report tbody tr:nth-child(even) {
+            background-color: #fff;
+        }
+
+        /* Highlight header */
+        #report th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+    </style>
+
     <?php render_admin_js_variables(); ?>
 
     <script>
