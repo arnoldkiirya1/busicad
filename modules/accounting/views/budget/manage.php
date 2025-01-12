@@ -15,15 +15,13 @@
             <?php echo render_select('budget', $budgets, array('id', 'name'), 'budget', '', array(), array(), '', '', false); ?>
           </div>
           <div class=" col-md-6 pull-right">
-            <a href="#" onclick="creating_a_budget(); return false;" class="btn btn-primary mtop25 <?php if(!has_permission('accounting_budget', '', 'create')){echo 'hide';} ?>">
+            <a href="#" onclick="creating_a_budget(); return false;" class="btn btn-primary mtop25 pull-right <?php if(!has_permission('accounting_budget', '', 'create')){echo 'hide';} ?>">
               <i class="fa-regular fa-plus tw-mr-1"></i>
               New Budget
             </a>
             
-            <a href="<?php echo admin_url('accounting/budget_import'); ?>" class="btn btn-success mbot15 <?php if(!has_permission('accounting_budget', '', 'create')){echo 'hide';} ?>"> <i class="fa fa-upload" aria-hidden="true"></i> <?php echo _l('import_budget'); ?></a>
-
-           
-            
+            <a href="<?php echo admin_url('accounting/budget_import'); ?>" class="btn btn-success mtop25 pull-right <?php if(!has_permission('accounting_budget', '', 'create')){echo 'hide';} ?>"> <i class="fa fa-upload" aria-hidden="true"></i> <?php echo _l('import_budget'); ?></a>
+ 
           </div>
         </div>
         <div id="div_data">
