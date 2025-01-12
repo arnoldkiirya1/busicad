@@ -175,12 +175,3 @@
     </table>
   </div>
 </div>
-<script>
-    $(document).ready(function() {
-      $(function() {
-          var tAPI = initDataTable('#report', '', [0], [0], {}, 
-              <?= hooks()->apply_filters('customers_table_default_order', json_encode([2, 'asc'])); ?>
-          );
-      });
-    });
-</script>
