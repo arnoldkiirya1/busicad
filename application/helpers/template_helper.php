@@ -315,7 +315,7 @@ function get_company_logo($uri = '', $href_class = '', $type = '')
         <img  src="' . base_url('uploads/company/' . $company_logo) . '" class="img-responsive" alt="' . e($company_name) . '">
         </a>';
     } elseif ($company_name != '') {
-        $logo = '<a href="' . $logoURL . '" class="' . $href_class . ' logo logo-text">' . e($company_name) . '</a>';
+        $logo = '<a href="' . $logoURL . '" class="' . $href_class . ' logo logo-text" style="font-size: 23px; font-weight: 700; color: #fff">' . e($company_name) . '</a>';
     } else {
         $logo = '';
     }
