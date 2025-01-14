@@ -1,6 +1,6 @@
 <div id="accordion">
   <div class="">
-  <table class="tree" id="report" class="table table-report number-index-2 dataTable no-footer">
+  <table class="tree" >
       
   <thead>
         <tr class="tr_header">
