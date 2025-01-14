@@ -46,7 +46,7 @@
         .tree th {
         background-color: #455A64 !important;
         color: #fff !important;
-        font-weight: bold;
+        font-weight: normal;
         text-align: center;
         }
 
@@ -55,6 +55,11 @@
             background-color: #455A64 !important;
             color: #fff !important;
            
+        }
+
+        .tr_total td {
+            font-weight: bold;
+            background-color: #fff !important;
         }
 
         /* Row Colors */
