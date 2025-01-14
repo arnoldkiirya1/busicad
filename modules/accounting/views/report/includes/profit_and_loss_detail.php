@@ -5,27 +5,8 @@
     <div class="row">
       <div class="panel_s">
         <div class="panel-body">
-        <div class="row">
-        <div class="col-md-10">
           <h4 class="no-margin font-bold"><?php echo _l($title); ?></h4>
           <a href="<?php echo admin_url('accounting/report'); ?>"><?php echo _l('back_to_report_list'); ?></a>
-        </div>
-        <div class="col-md-2">
-          <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-print"></i><?php if(is_mobile()){echo ' PDF';} ?> <span class="caret"></span></a>
-                 <ul class="dropdown-menu dropdown-menu-right">
-                    <li>
-                       <a href="#" onclick="printDiv2(); return false;">
-                       <?php echo _l('export_to_pdf'); ?>
-                       </a>
-                    </li>
-                    <li>
-                       <a href="#" onclick="printExcel(); return false;">
-                       <?php echo _l('export_to_excel'); ?>
-                       </a>
-                    </li>
-                 </ul>
-              </div>
-          </div>
           <hr />
           <div class="row">
             <div class="col-md-10">
@@ -50,15 +31,27 @@
                   <?php echo render_select('items[]',$items,array('id', 'description', 'sku_code'),'acc_item', '', array('multiple' => true, 'data-actions-box' => true), array(), '', '', false); ?>
                 </div>
                 <div class="col-md-3">
-                  
+                  <?php echo form_hidden('type', 'profit_and_loss_detail'); ?>
+                  <button type="submit" class="btn btn-info btn-submit mtop25"><?php echo _l('filter'); ?></button>
                 </div>
               <?php echo form_close(); ?>
               </div>
             </div>
             <div class="col-md-2">
               <div class="btn-group pull-right mtop25">
-                 <?php echo form_hidden('type', 'profit_and_loss_detail'); ?>
-                  <button type="submit" class="btn btn-primary btn-submit mtop25"><i class="fa fa-filter" aria-hidden="true"></i> <?php echo _l('filter'); ?></button>
+                 <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-print"></i><?php if(is_mobile()){echo ' PDF';} ?> <span class="caret"></span></a>
+                 <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                       <a href="#" onclick="printDiv2(); return false;">
+                       <?php echo _l('export_to_pdf'); ?>
+                       </a>
+                    </li>
+                    <li>
+                       <a href="#" onclick="printExcel(); return false;">
+                       <?php echo _l('export_to_excel'); ?>
+                       </a>
+                    </li>
+                 </ul>
               </div>
             </div>
           </div>
@@ -67,8 +60,7 @@
               <hr>
             </div>
           </div>
-          <!-- Details table -->
-          <div class="" id="DivIdToPrint">
+          <div class="page-size2" id="DivIdToPrint">
             
         </div>
       </div>
@@ -78,6 +70,5 @@
 <!-- box loading -->
 <div id="box-loading"></div>
 <?php init_tail(); ?>
-
 </body>
 </html>
