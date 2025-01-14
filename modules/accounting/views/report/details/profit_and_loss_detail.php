@@ -41,12 +41,12 @@
           <td></td>
         </tr> -->
         <tr class="tr_header">
-          <td class="text-bold"><?php echo _l('invoice_payments_table_date_heading'); ?></td>
-          <td class="text-bold"><?php echo _l('transaction_type'); ?></td>
-          <td class="text-bold"><?php echo _l('description'); ?></td>
-          <td class="text-bold"><?php echo _l('split'); ?></td>
-          <td class="total_amount text-bold"><?php echo _l('acc_amount'); ?></td>
-          <td class="total_amount text-bold"><?php echo _l('balance'); ?></td>
+          <td ><?php echo _l('invoice_payments_table_date_heading'); ?></td>
+          <td ><?php echo _l('transaction_type'); ?></td>
+          <td ><?php echo _l('description'); ?></td>
+          <td ><?php echo _l('split'); ?></td>
+          <td class="total_amount"><?php echo _l('acc_amount'); ?></td>
+          <td class="total_amount"><?php echo _l('balance'); ?></td>
         </tr>
         <tr class="treegrid-1000 parent-node expanded">
           <td class="parent"><?php echo _l('acc_ordinary_income_expenses'); ?></td>
