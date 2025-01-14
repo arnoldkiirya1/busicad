@@ -44,8 +44,8 @@
 
         /* Header Styling */
         .tree th {
-        background-color: #455A64;
-        color: #fff;
+        background-color: #455A64 !important;
+        color: #fff !important;
         font-weight: bold;
         text-align: center;
         }
