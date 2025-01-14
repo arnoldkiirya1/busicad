@@ -25,7 +25,7 @@
             border-radius: 0px;
             background: white;
             display: flex;
-            margin: 0cm auto !important;
+            margin: 0cm 0cm !important;
         }
 
         /* General Table Styling */
