@@ -20,7 +20,7 @@
     <style>
         /* Add border to all cells */
         .page-size2 {
-            padding: 1cm;
+            padding: 0cm;
             border: 1px #D3D3D3 solid;
             border-radius: 0px;
             background: white;
