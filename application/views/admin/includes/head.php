@@ -31,7 +31,7 @@
         .tree {
             width: 100%;
             border-collapse: collapse;
-            /* margin: 20px 0; */
+            margin: 0 0 !important;
             font-size: 16px;
             text-align: left;
         }
