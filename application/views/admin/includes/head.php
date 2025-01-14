@@ -28,6 +28,14 @@
             margin: 0cm 0cm !important;
         }
 
+        .tree {
+            width: 100%;
+            border-collapse: collapse;
+            /* margin: 20px 0; */
+            font-size: 16px;
+            text-align: left;
+        }
+
         /* General Table Styling */
         .tree {
         width: 100%;
