@@ -101,14 +101,20 @@
         margin-left: 0;
         }
 
-        /* Responsive Design */
+        /* Responsive Scrollable Wrapper */
+        .table-responsive {
+        overflow-x: auto; /* Enables horizontal scrolling */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
+        }
+
+        /* Ensuring Table Fit on Small Devices */
         @media screen and (max-width: 768px) {
         .tree {
-            font-size: 14px;
+            font-size: 12px; /* Adjust font size for smaller screens */
         }
 
         .tree th, .tree td {
-            padding: 8px 10px;
+            padding: 8px;
         }
         }
 
