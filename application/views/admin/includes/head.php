@@ -50,6 +50,13 @@
         text-align: center;
         }
 
+        .tr_header {
+           
+            background-color: #455A64 !important;
+            color: #fff !important;
+           
+        }
+
         /* Row Colors */
         .tree tr:nth-child(even) {
         background-color: #f9f9f9;
