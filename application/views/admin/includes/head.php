@@ -19,24 +19,84 @@
 
     <style>
         /* Add border to all cells */
-        #report th, #report td {
-            border: 1px solid #ddd;
-            padding: 8px;
+        .page-size2 {
+            padding: 1cm;
+            border: 1px #D3D3D3 solid;
+            border-radius: 0px;
+            background: white;
+            display: flex;
+            margin: 0cm auto;
         }
 
-        /* Add alternating row colors */
-        #report tbody tr:nth-child(odd) {
-            background-color: #f9f9f9;
+        /* General Table Styling */
+        .tree {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 16px;
+        text-align: left;
         }
 
-        #report tbody tr:nth-child(even) {
-            background-color: #fff;
+        .tree th, .tree td {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
         }
 
-        /* Highlight header */
-        #report th {
-            background-color: #f2f2f2;
-            font-weight: bold;
+        /* Header Styling */
+        .tree th {
+        background-color: #f4f4f4;
+        color: #333;
+        font-weight: bold;
+        text-align: center;
+        }
+
+        /* Row Colors */
+        .tree tr:nth-child(even) {
+        background-color: #f9f9f9;
+        }
+
+        .tree tr:hover {
+        background-color: #f1f1f1;
+        }
+
+        /* Parent Node Styling */
+        .tree .parent {
+        font-weight: bold;
+        background-color: #e8f0fe;
+        }
+
+        /* Totals Row Styling */
+        .tr_total td {
+        font-weight: bold;
+        background-color: #f2ffe6;
+        }
+
+        /* Text Alignments */
+        .text-center {
+        text-align: center;
+        }
+
+        .text-bold {
+        font-weight: bold;
+        }
+
+        .no-margin-top-20 {
+        margin-top: 0;
+        }
+
+        .no-margin-left-24 {
+        margin-left: 0;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+        .tree {
+            font-size: 14px;
+        }
+
+        .tree th, .tree td {
+            padding: 8px 10px;
+        }
         }
 
     </style>
