@@ -54,6 +54,7 @@
            
             background-color: #455A64 !important;
             color: #fff !important;
+            font-weight: normal !important;
            
         }
 
