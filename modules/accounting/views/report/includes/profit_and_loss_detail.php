@@ -60,7 +60,7 @@
               <hr>
             </div>
           </div>
-          <div class="page-size2" id="DivIdToPrint">
+          <div class="page-sizef" id="DivIdToPrint">
             
         </div>
       </div>
