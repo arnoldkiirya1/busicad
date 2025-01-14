@@ -32,21 +32,13 @@
             width: 100%;
             border-collapse: collapse;
             margin: 0 0 !important;
-            font-size: 16px;
+            font-size: 14px;
             text-align: left;
         }
 
         /* General Table Styling */
-        .tree {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-        font-size: 16px;
-        text-align: left;
-        }
-
         .tree th, .tree td {
-        padding: 12px 15px;
+        padding: 6px 7px;
         border: 1px solid #ddd;
         }
 
