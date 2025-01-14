@@ -46,7 +46,7 @@
         .tree th {
         background-color: #455A64 !important;
         color: #fff !important;
-        font-weight: normal;
+        font-weight: normal !important;
         text-align: center;
         }
 
