@@ -2,14 +2,14 @@
   <div class="card">
     <table class="tree">
       <tbody>
-        <tr>
+        <!-- <tr>
           <td colspan="7">
               <h3 class="text-center no-margin-top-20 no-margin-left-24"><?php echo get_option('companyname'); ?></h3>
           </td>
           <td></td>
-          <td></td>
+          <td></td> -->
           <!-- <td></td> -->
-          <td></td>
+          <!-- <td></td>
           <td></td>
           <td></td>
           <td></td>
@@ -19,9 +19,9 @@
             <h4 class="text-center no-margin-top-20 no-margin-left-24"><?php echo _l('bank_reconciliation_detail'); ?></h4>
           </td>
           <td></td>
-          <td></td>
+          <td></td> -->
           <!-- <td></td> -->
-          <td></td>
+          <!-- <td></td>
           <td></td>
           <td></td>
           <td></td>
@@ -30,9 +30,9 @@
           <td colspan="7">
             <p class="text-center no-margin-top-20 no-margin-left-24"><?php echo $data_report['account_name'] .', '._l('period_ending').' '._d($data_report['statement_ending_date']); ?></p>
           </td>
-          <td></td>
+          <td></td> -->
           <!-- <td></td> -->
-          <td></td>
+          <!-- <td></td>
           <td></td>
           <td></td>
           <td></td>
@@ -40,15 +40,15 @@
         </tr>
         <tr>
           <td>
-          </td>
+          </td> -->
           <!-- <td></td> -->
+          <!-- <td></td>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
-        </tr>
+        </tr> -->
         <tr class="tr_header">
           <td class="text-bold"><?php echo _l('type'); ?></td>
           <td class="text-bold"><?php echo _l('invoice_payments_table_date_heading'); ?></td>

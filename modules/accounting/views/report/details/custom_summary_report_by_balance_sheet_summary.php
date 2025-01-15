@@ -2,7 +2,7 @@
     <div class="card">
       <table class="tree">
         <tbody>
-          <tr>
+          <!-- <tr>
             <td colspan="14">
                 <h3 class="text-center no-margin-top-20 no-margin-left-24"><?php echo get_option('companyname'); ?></h3>
             </td>
@@ -19,7 +19,7 @@
               <p class="text-center no-margin-top-20 no-margin-left-24"><?php echo _d($data_report['from_date']) .' - '. _d($data_report['to_date']); ?></p>
             </td>
             <td></td>
-          </tr>
+          </tr> -->
           <tr>
             <td>
             </td>

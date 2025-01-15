@@ -4,7 +4,7 @@
     <table class="tree">
       <?php if($data_report['type'] == 'profit_and_loss_accounts'){ ?>
       <tbody>
-        <tr class="treegrid-01 parent-node expanded">
+        <!-- <tr class="treegrid-01 parent-node expanded">
           <td colspan="14">
               <h3 class="text-center no-margin-top-20 no-margin-left-24"><?php echo get_option('companyname'); ?></h3>
           </td>
@@ -21,7 +21,7 @@
           <td></td>
           <td></td>
           <td></td>
-        </tr>
+        </tr> -->
         <tr class="treegrid-02 parent-node expanded">
           <td colspan="14">
             <h4 class="text-center no-margin-top-20 no-margin-left-24"><?php echo _l('budget_overview'); ?></h4>

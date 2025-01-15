@@ -2,7 +2,7 @@
   <div class="card">
     <table class="tree">
       <tbody>
-        <tr>
+        <!-- <tr>
           <td colspan="3">
               <h3 class="text-center no-margin-top-20 no-margin-left-24"><?php echo get_option('companyname'); ?></h3>
           </td>
@@ -27,7 +27,7 @@
           <td></td>
           <td></td>
           <td></td>
-        </tr>
+        </tr> -->
         <tr class="border-top">
           <td></td>
           <td colspan="2" class="text-center th_total text-bold"><?php echo _l('total'); ?></td>

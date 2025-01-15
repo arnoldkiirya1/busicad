@@ -2,7 +2,7 @@
   <div class="card">
     <table class="tree">
       <tbody>
-        <tr>
+        <!-- <tr>
           <td colspan="7">
               <h3 class="text-center no-margin-top-20 no-margin-left-24"><?php echo get_option('companyname'); ?></h3>
           </td>
@@ -43,7 +43,7 @@
           <td></td>
           <td></td>
           <td></td>
-        </tr>
+        </tr> -->
         <tr class="tr_header">
           <td class="text-bold"><?php echo _l('invoice_payments_table_date_heading'); ?></td>
           <td class="text-bold"><?php echo _l('transaction_type'); ?></td>
