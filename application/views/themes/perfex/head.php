@@ -12,6 +12,7 @@
 		src="<?= base_url('assets/plugins/jquery/jquery.min.js'); ?>">
 	</script>
 	<?php app_customers_head(); ?>
+	
 </head>
 
 <body

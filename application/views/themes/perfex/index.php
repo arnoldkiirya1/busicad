@@ -66,6 +66,22 @@ app_customers_footer();
  */
 app_js_alerts();
 ?>
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea[name="long_description"]', // Target your textarea
+        height: 300, // Adjust height
+        menubar: false, // Hide menu bar
+        plugins: [
+            'advlist autolink lists link charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime table paste code help wordcount'
+        ],
+        toolbar: 'undo redo | bold italic underline | bullist numlist | alignleft aligncenter alignright | link',
+        branding: false // Hide "Powered by TinyMCE"
+    });
+</script>
+
 </body>
 
 </html>
