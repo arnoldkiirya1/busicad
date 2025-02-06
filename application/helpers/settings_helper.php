@@ -179,7 +179,7 @@ function app_init_settings_tabs()
             ],
             [
                 'name'     => _l('estimates'),
-                'view'     => 'admin/settings/includes/Estimates',
+                'view'     => 'admin/settings/includes/estimates',
                 'position' => 20,
                 'icon'     => 'fa-regular fa-file',
             ],
