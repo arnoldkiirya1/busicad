@@ -27,11 +27,11 @@ $lang['invoice_status_paid']                   = 'Paid';
 $lang['invoice_status_unpaid']                 = 'Unpaid';
 $lang['invoice_status_overdue']                = 'Overdue';
 $lang['invoice_status_not_paid_completely']    = 'Partially Paid';
-$lang['invoice_pdf_heading']                   = 'INVOICE';
-$lang['invoice_table_item_heading']            = 'Item';
-$lang['invoice_table_quantity_heading']        = 'Qty';
+$lang['invoice_pdf_heading']                   = 'Invoice';
+$lang['invoice_table_item_heading']            = 'Description';
+$lang['invoice_table_quantity_heading']        = 'Quantity';
 $lang['invoice_table_rate_heading']            = 'Rate';
-$lang['invoice_table_tax_heading']             = 'Tax';
+$lang['invoice_table_tax_heading']             = 'Taxes';
 $lang['invoice_table_amount_heading']          = 'Amount';
 $lang['invoice_subtotal']                      = 'Sub Total';
 $lang['invoice_adjustment']                    = 'Adjustment';
@@ -478,7 +478,7 @@ $lang['dt_paginate_first']    = 'First';
 $lang['dt_paginate_last']     = 'Last';
 $lang['dt_paginate_next']     = 'Next';
 $lang['dt_paginate_previous'] = 'Previous';
-$lang['dt_search']            = 'Search...';
+$lang['dt_search']            = 'Search in AccSol | Simplifying Business & Accounting';
 $lang['dt_zero_records']      = 'No matching records found';
 $lang['dt_loading_records']   = 'Loading...';
 $lang['dt_length_menu']       = 'Show _MENU_ entries';
@@ -1185,8 +1185,8 @@ $lang['lead_attachments']         = 'Attachments';
 $lang['acs_finance'] = 'Finance';
 
 # Settings
-$lang['settings_show_sale_agent_on_invoices']       = 'Show Sale Agent On Invoice';
-$lang['settings_show_sale_agent_on_estimates']      = 'Show Sale Agent On Estimate';
+$lang['settings_show_sale_agent_on_invoices']       = 'Show Salesperson On Invoice';
+$lang['settings_show_sale_agent_on_estimates']      = 'Show Salesperson On Estimate';
 $lang['settings_predefined_predefined_term']        = 'Predefined Terms & Conditions';
 $lang['settings_predefined_clientnote']             = 'Predefined Client Note';
 $lang['settings_custom_pdf_logo_image_url']         = 'Custom PDF Company Logo URL';
@@ -1194,7 +1194,7 @@ $lang['settings_custom_pdf_logo_image_url_tooltip'] = 'Probably you will have pr
 . If you leave this field blank the uploaded logo will be used.';
 
 # General
-$lang['sale_agent_string']               = 'Sale Agent';
+$lang['sale_agent_string']               = 'Salesperson';
 $lang['amount_display_in_base_currency'] = 'Amount is displayed in your base currency - Only use this report if you are using 1 currency for payments and expenses.';
 # Leads
 $lang['leads_summary'] = 'Leads Summary';
@@ -1342,12 +1342,12 @@ $lang['email_template_contracts_fields_heading'] = 'Contracts';
 
 # Invoices General
 $lang['invoice_estimate_general_options'] = 'General Options';
-$lang['invoice_table_item_description']   = 'Description';
+$lang['invoice_table_item_description']   = 'Long Description';
 $lang['invoice_recurring_indicator']      = 'Recurring';
 
 # Estimates
 $lang['estimate_convert_to_invoice_successfully'] = 'Estimate converted to invoice successfully';
-$lang['estimate_table_item_description']          = 'Description';
+$lang['estimate_table_item_description']          = 'Long Description';
 
 # Version 1.0.6
 # Invoices
@@ -1870,7 +1870,7 @@ $lang['invoice_activity_payment_made_by_staff']                   = 'recorded pa
 $lang['invoice_activity_added_attachment']                        = 'Added attachment';
 
 # Navigation
-$lang['top_search_placeholder'] = 'Search...';
+$lang['top_search_placeholder'] = 'Search in AccSol | Simplifying Business';
 
 # Staff
 $lang['staff_profile_inactive_account'] = 'This staff member account is inactive';
@@ -3870,7 +3870,7 @@ $lang['quick_create']                    = 'Quick Create';
 
 # Version 3.0.5
 $lang['subscription_last_sent']                             = 'Last Sent';
-$lang['automatically_set_logged_in_staff_sales_agent']      = 'Automatically assign logged in staff as sale agent';
+$lang['automatically_set_logged_in_staff_sales_agent']      = 'Automatically assign logged in staff as Salesperson';
 $lang['automatically_set_logged_in_staff_sales_agent_help'] = 'Applicable for: Estimates, invoices, proposal';
 $lang['permission_view_all_templates']                      = 'View All Templates';
 $lang['settings_contract_sign_reminder_every_days_info']    = 'Sign reminders are sent to the customer contacts after the contract is first time sent to the customer and they are automatically stopped when the contract is signed.';
