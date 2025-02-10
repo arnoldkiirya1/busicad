@@ -70,6 +70,23 @@ function pdf_logo_url()
     return hooks()->apply_filters('pdf_logo_url', $logoImage);
 }
 
+function logo_url()
+{
+    $custom_pdf_logo_image_url = get_option('custom_pdf_logo_image_url');
+    $companyUploadPath         = get_upload_path_by_type('company');
+    $logoUrl                   = '';
+
+    if ($custom_pdf_logo_image_url != '') {
+        $logoUrl = $custom_pdf_logo_image_url;
+    } else {
+        if (get_option('company_logo') != '' && file_exists($companyUploadPath . get_option('company_logo'))) {
+            $logoUrl = $companyUploadPath . get_option('company_logo');
+        }
+    }
+
+    return $logoUrl; // Return the image URL directly
+}
+
 /**
  * Get available fonts for PDF
  * @return mixed

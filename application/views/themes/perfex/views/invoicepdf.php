@@ -4,6 +4,35 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 $dimensions = $pdf->getPageDimensions();
 
+$logo_url = logo_url();
+
+// If the logo exists, render it
+if (!empty($logo_url)) {
+    // Get the image size (original width and height)
+    list($orig_width, $orig_height) = getimagesize($logo_url);
+
+    // Define the maximum width you want for the logo
+    $max_width = 100; // 100mm width for the logo
+
+    // Calculate the new dimensions while maintaining the aspect ratio
+    $aspect_ratio = $orig_width / $orig_height;
+    $image_width = $max_width;
+    $image_height = $max_width / $aspect_ratio;
+
+    // Position the image in the center of the page
+    $x = (210 - $image_width) / 2;
+    $y = (297 - $image_height) / 2;
+
+    // Set transparency (watermark effect)
+    $pdf->SetAlpha(0.1); // Set alpha for transparency (0.1 is very transparent)
+
+    // Render the image at the center with the calculated width and height
+    $pdf->Image($logo_url, $x, $y, $image_width, $image_height);
+
+    // Reset alpha back to full opacity
+    $pdf->SetAlpha(1); // Reset to no transparency
+}
+
 $info_right_column = '';
 $info_left_column  = '';
 
