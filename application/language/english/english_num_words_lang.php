@@ -137,6 +137,7 @@ $currencies = [
     'EUR' => 'Euros',
     'INR' => 'Rupees',
     'AED' => 'Dirhams',
+    'UGX' => 'Uganda Shillings',
 ];
 
 $currencies = hooks()->apply_filters('before_number_format_render_languge_currencies', $currencies);
