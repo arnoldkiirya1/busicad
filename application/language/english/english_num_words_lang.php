@@ -130,7 +130,7 @@ $lang['num_word_paisa']   = 'Paisa';
 $lang['num_word_cents_AED'] = 'Fils';
 
 // Show in invoices and estimates
-$lang['num_word'] = 'With words';
+$lang['num_word'] = 'Amount in Words';
 
 $currencies = [
     'USD' => 'Dollars',
