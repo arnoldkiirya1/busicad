@@ -7,31 +7,35 @@ $dimensions = $pdf->getPageDimensions();
 $info_right_column = '';
 $info_left_column  = '';
 
-$info_right_column .= '<span style="font-weight:bold;font-size:27px;">' . _l('invoice_pdf_heading') . '</span><br />';
-$info_right_column .= '<b style="color:#4e4e4e;"># ' . $invoice_number . '</b>';
+$info_right_column .= '<span style="text-transform:none !important; font-weight:bold;font-size:22px;">' . _l('invoice_pdf_heading') . '</span>';
+$info_right_column .= '<b style="font-size:20px;color:#4e4e4e;"> #' . $invoice_number . '</b><br>';
 
-if (get_option('show_status_on_pdf_ei') == 1) {
-    $info_right_column .= '<br /><span style="color:rgb(' . invoice_status_color_pdf($status) . ');text-transform:uppercase;">' . format_invoice_status($status, '', false) . '</span>';
-}
-
-if ($status != Invoices_model::STATUS_PAID && $status != Invoices_model::STATUS_CANCELLED && get_option('show_pay_link_to_invoice_pdf') == 1
-    && found_invoice_mode($payment_modes, $invoice->id, false)) {
-    $info_right_column .= ' - <a style="color:#84c529;text-decoration:none;text-transform:uppercase;" href="' . site_url('invoice/' . $invoice->id . '/' . $invoice->hash) . '"><1b>' . _l('view_invoice_pdf_link_pay') . '</1b></a>';
-}
-
-// Add logo
-$info_left_column .= pdf_logo_url();
-
-// Write top left logo and right column info/text
-pdf_multi_row($info_left_column, $info_right_column, $pdf, ($dimensions['wk'] / 2) - $dimensions['lm']);
-
-$pdf->ln(10);
-
-$organization_info = '<div style="color:#424242;">';
+$organization_info = '<div style="color:#616161;">';
 
 $organization_info .= format_organization_info();
 
 $organization_info .= '</div>';
+
+$organization_info = hooks()->apply_filters('invoicepdf_organization_info', $organization_info, $invoice);
+
+
+// Add logo
+$info_left_column .= pdf_logo_url();
+
+
+// Write top left logo and right column info/text
+pdf_multi_row($info_left_column, $organization_info, $pdf, ($dimensions['wk'] / 2) - $dimensions['lm']);
+
+// Add a horizontal line below the two columns (spanning full width)
+$pdf->SetY($pdf->GetY() + 5); // Adjust vertical position
+$pdf->SetLineWidth(0.3); // Line thickness
+$A4_width = 199;
+
+// Set the color for the line (e.g., red color: RGB(255, 0, 0))
+$pdf->SetDrawColor(224,224,224); // Red color (RGB)
+// Draw the horizontal line, respecting the left and right margins
+$pdf->Line($pdf->GetX(), $pdf->GetY(), $A4_width , $pdf->GetY());
+$pdf->ln(5);
 
 // Bill to
 $invoice_info = '<b>' . _l('invoice_bill_to') . ':</b>';
@@ -47,12 +51,21 @@ if ($invoice->include_shipping == 1 && $invoice->show_shipping_on_invoice == 1) 
     $invoice_info .= '</div>';
 }
 
-$invoice_info .= '<br />' . _l('invoice_data_date') . ' ' . _d($invoice->date) . '<br />';
+if (get_option('show_status_on_pdf_ei') == 1) {
+    $info_right_column .= '<br /><span style="color:rgb(' . invoice_status_color_pdf($status) . ');text-transform:normal;">' . format_invoice_status($status, '', false) . '</span>';
+}
+
+if ($status != Invoices_model::STATUS_PAID && $status != Invoices_model::STATUS_CANCELLED && get_option('show_pay_link_to_invoice_pdf') == 1
+    && found_invoice_mode($payment_modes, $invoice->id, false)) {
+    $info_right_column .= ' - <a style="color:#84c529;text-decoration:none;text-transform:uppercase;" href="' . site_url('invoice/' . $invoice->id . '/' . $invoice->hash) . '"><1b>' . _l('view_invoice_pdf_link_pay') . '</1b></a>';
+}
+
+$info_right_column .= '<br />' . _l('invoice_data_date') . ' ' . _d($invoice->date) . '<br />';
 
 $invoice_info = hooks()->apply_filters('invoice_pdf_header_after_date', $invoice_info, $invoice);
 
 if (! empty($invoice->duedate)) {
-    $invoice_info .= _l('invoice_data_duedate') . ' ' . _d($invoice->duedate) . '<br />';
+    $info_right_column .= _l('invoice_data_duedate') . ' ' . _d($invoice->duedate) . '<br />';
     $invoice_info = hooks()->apply_filters('invoice_pdf_header_after_due_date', $invoice_info, $invoice);
 }
 
@@ -77,28 +90,43 @@ foreach ($pdf_custom_fields as $field) {
 }
 
 $invoice_info      = hooks()->apply_filters('invoice_pdf_header_after_custom_fields', $invoice_info, $invoice);
-$organization_info = hooks()->apply_filters('invoicepdf_organization_info', $organization_info, $invoice);
 $invoice_info      = hooks()->apply_filters('invoice_pdf_info', $invoice_info, $invoice);
 
-$left_info  = $swap == '1' ? $invoice_info : $organization_info;
-$right_info = $swap == '1' ? $organization_info : $invoice_info;
+$left_info  = $swap == '1' ? $invoice_info : $info_right_column;
+$right_info = $swap == '1' ? $info_right_column : $invoice_info;
 
 pdf_multi_row($left_info, $right_info, $pdf, ($dimensions['wk'] / 2) - $dimensions['lm']);
 
 // The Table
-$pdf->Ln(hooks()->apply_filters('pdf_info_and_table_separator', 6));
+$pdf->Ln(hooks()->apply_filters('pdf_info_and_table_separator', 0));
 
 // The items table
 $items = get_items_table_data($invoice, 'invoice', 'pdf');
 
 $tblhtml = $items->table();
 
+// Modify the table to include inline CSS styles
+$tblhtml = '<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1.5px solid #424242;
+        padding: 2px;
+    }
+    th {
+        font-weight: bold;
+    }
+</style>' . $tblhtml;
+
+
 $pdf->writeHTML($tblhtml, true, false, false, false, '');
 
-$pdf->Ln(8);
+$pdf->Ln(0);
 
 $tbltotal = '';
-$tbltotal .= '<table cellpadding="6" style="font-size:' . ($font_size + 4) . 'px">';
+$tbltotal .= '<table border="1" cellpadding="6" style="font-size:' . ($font_size + 4) . 'px">';
 $tbltotal .= '
 <tr>
     <td align="right" width="85%"><strong>' . _l('invoice_subtotal') . '</strong></td>
@@ -185,7 +213,7 @@ if (count($invoice->payments) > 0 && get_option('show_transactions_on_invoice_pd
     $pdf->Cell(0, 0, _l('invoice_received_payments') . ':', 0, 1, 'L', 0, '', 0);
     $pdf->SetFont($font_name, '', $font_size);
     $pdf->Ln(4);
-    $tblhtml = '<table width="100%" bgcolor="#fff" cellspacing="0" cellpadding="5" border="0">
+    $tblhtml = '<table width="100%" border="1" bgcolor="#fff" cellspacing="0" cellpadding="5" border="0">
         <tr height="20"  style="color:#000;border:1px solid #000;">
         <th width="25%;" style="' . $border . '">' . _l('invoice_payments_table_number_heading') . '</th>
         <th width="25%;" style="' . $border . '">' . _l('invoice_payments_table_mode_heading') . '</th>
@@ -251,3 +279,14 @@ if (! empty($invoice->terms)) {
     $pdf->Ln(2);
     $pdf->writeHTMLCell('', '', '', '', $invoice->terms, 0, 1, false, true, 'L', true);
 }
+
+// Add a horizontal line below the two columns (spanning full width)
+$pdf->SetY($pdf->GetY() + 5); // Adjust vertical position
+$pdf->SetLineWidth(0.3); // Line thickness
+$A4_width = 199;
+
+// Set the color for the line (e.g., red color: RGB(255, 0, 0))
+$pdf->SetDrawColor(224,224,224); // Red color (RGB)
+// Draw the horizontal line, respecting the left and right margins
+$pdf->Line($pdf->GetX(), $pdf->GetY(), $A4_width , $pdf->GetY());
+$pdf->ln(5);
