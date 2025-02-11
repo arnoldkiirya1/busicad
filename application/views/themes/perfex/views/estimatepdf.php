@@ -4,11 +4,48 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 $dimensions = $pdf->getPageDimensions();
 
+// Get the logo URL using pdf_logo_url()
+// Get the logo URL using pdf_logo_url()
+$logo_url = logo_url();
+
+// If the logo exists, render it
+if (!empty($logo_url)) {
+    // Get the image size (original width and height)
+    list($orig_width, $orig_height) = getimagesize($logo_url);
+
+    // Define the maximum width you want for the logo
+    $max_width = 100; // 100mm width for the logo
+
+    // Calculate the new dimensions while maintaining the aspect ratio
+    $aspect_ratio = $orig_width / $orig_height;
+    $image_width = $max_width;
+    $image_height = $max_width / $aspect_ratio;
+
+    // Position the image in the center of the page
+    $x = (210 - $image_width) / 2;
+    $y = (297 - $image_height) / 2;
+
+    // Set transparency (watermark effect)
+    $pdf->SetAlpha(0.1); // Set alpha for transparency (0.1 is very transparent)
+
+    // Render the image at the center with the calculated width and height
+    $pdf->Image($logo_url, $x, $y, $image_width, $image_height);
+
+    // Reset alpha back to full opacity
+    $pdf->SetAlpha(1); // Reset to no transparency
+}
+
 $info_right_column = '';
 $info_left_column  = '';
 
-$info_right_column .= '<span style="font-weight:bold;font-size:27px;">' . _l('estimate_pdf_heading') . '</span><br />';
+$info_right_column .= '<span style="font-weight:bold;font-size:22px;">' . _l('estimate_pdf_heading') . '</span><br />';
 $info_right_column .= '<b style="color:#4e4e4e;"># ' . $estimate_number . '</b>';
+
+
+$organization_info = '<div style="color:#424242;">';
+$organization_info .= format_organization_info();
+$organization_info .= '</div>';
+
 
 if (get_option('show_status_on_pdf_ei') == 1) {
     $info_right_column .= '<br /><span style="color:rgb(' . estimate_status_color_pdf($status) . ');text-transform:uppercase;">' . format_estimate_status($status, '', false) . '</span>';
@@ -16,14 +53,24 @@ if (get_option('show_status_on_pdf_ei') == 1) {
 
 // Add logo
 $info_left_column .= pdf_logo_url();
+
+$organization_info = hooks()->apply_filters('estimatepdf_organization_info', $organization_info, $estimate);
+
+
 // Write top left logo and right column info/text
-pdf_multi_row($info_left_column, $info_right_column, $pdf, ($dimensions['wk'] / 2) - $dimensions['lm']);
+pdf_multi_row($info_left_column, $organization_info, $pdf, ($dimensions['wk'] / 2) - $dimensions['lm']);
 
-$pdf->ln(10);
+// Add a horizontal line below the two columns (spanning full width)
+$pdf->SetY($pdf->GetY() + 5); // Adjust vertical position
+$pdf->SetLineWidth(0.3); // Line thickness
+$A4_width = 199;
 
-$organization_info = '<div style="color:#424242;">';
-$organization_info .= format_organization_info();
-$organization_info .= '</div>';
+// Set the color for the line (e.g., red color: RGB(255, 0, 0))
+$pdf->SetDrawColor(224,224,224); // Red color (RGB)
+// Draw the horizontal line, respecting the left and right margins
+$pdf->Line($pdf->GetX(), $pdf->GetY(), $A4_width , $pdf->GetY());
+
+$pdf->ln(5);
 
 // Estimate to
 $estimate_info = '<b>' . _l('estimate_to') . '</b>';
@@ -39,18 +86,18 @@ if ($estimate->include_shipping == 1 && $estimate->show_shipping_on_estimate == 
     $estimate_info .= '</div>';
 }
 
-$estimate_info .= '<br />' . _l('estimate_data_date') . ': ' . _d($estimate->date) . '<br />';
+$info_right_column .= '<br />' . _l('estimate_data_date') . ': ' . _d($estimate->date) . '<br />';
 
 if (! empty($estimate->expirydate)) {
-    $estimate_info .= _l('estimate_data_expiry_date') . ': ' . _d($estimate->expirydate) . '<br />';
+    $info_right_column .= _l('estimate_data_expiry_date') . ': ' . _d($estimate->expirydate) . '<br />';
 }
 
 if (! empty($estimate->reference_no)) {
-    $estimate_info .= _l('reference_no') . ': ' . $estimate->reference_no . '<br />';
+    $info_right_column .= _l('reference_no') . ': ' . $estimate->reference_no . '<br />';
 }
 
 if ($estimate->sale_agent && get_option('show_sale_agent_on_estimates') == 1) {
-    $estimate_info .= _l('sale_agent_string') . ': ' . get_staff_full_name($estimate->sale_agent) . '<br />';
+    $info_right_column .= _l('sale_agent_string') . ': ' . get_staff_full_name($estimate->sale_agent) . '<br />';
 }
 
 if ($estimate->project_id && get_option('show_project_on_estimate') == 1) {
@@ -65,26 +112,39 @@ foreach ($pdf_custom_fields as $field) {
     $estimate_info .= $field['name'] . ': ' . $value . '<br />';
 }
 
-$organization_info = hooks()->apply_filters('estimatepdf_organization_info', $organization_info, $estimate);
-
-$left_info  = $swap == '1' ? $estimate_info : $organization_info;
-$right_info = $swap == '1' ? $organization_info : $estimate_info;
+$left_info  = $swap == '1' ? $estimate_info : $info_right_column;
+$right_info = $swap == '1' ? $info_right_column : $estimate_info;
 
 pdf_multi_row($left_info, $right_info, $pdf, ($dimensions['wk'] / 2) - $dimensions['lm']);
 
 // The Table
-$pdf->Ln(hooks()->apply_filters('pdf_info_and_table_separator', 6));
+$pdf->Ln(hooks()->apply_filters('pdf_info_and_table_separator', 0));
 
 // The items table
 $items = get_items_table_data($estimate, 'estimate', 'pdf');
 
 $tblhtml = $items->table();
 
+// Modify the table to include inline CSS styles
+$tblhtml = '<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1.5px solid #424242;
+        padding: 2px;
+    }
+    th {
+        font-weight: bold;
+    }
+</style>' . $tblhtml;
+
 $pdf->writeHTML($tblhtml, true, false, false, false, '');
 
-$pdf->Ln(8);
+$pdf->Ln(0);
 $tbltotal = '';
-$tbltotal .= '<table cellpadding="6" style="font-size:' . ($font_size + 4) . 'px">';
+$tbltotal .= '<table border="1" cellpadding="6" style="font-size:' . ($font_size + 4) . 'px">';
 $tbltotal .= '
 <tr>
     <td align="right" width="85%"><strong>' . _l('estimate_subtotal') . '</strong></td>
@@ -137,6 +197,16 @@ if (get_option('total_to_words_enabled') == 1) {
     $pdf->Ln(4);
 }
 
+// Add a horizontal line below the two columns (spanning full width)
+$pdf->SetY($pdf->GetY() + 5); // Adjust vertical position
+$pdf->SetLineWidth(0.3); // Line thickness
+$A4_width = 199;
+
+// Set the color for the line (e.g., red color: RGB(255, 0, 0))
+$pdf->SetDrawColor(224,224,224); // Red color (RGB)
+// Draw the horizontal line, respecting the left and right margins
+$pdf->Line($pdf->GetX(), $pdf->GetY(), $A4_width , $pdf->GetY());
+
 if (! empty($estimate->clientnote)) {
     $pdf->Ln(4);
     $pdf->SetFont($font_name, 'B', $font_size);
@@ -154,3 +224,16 @@ if (! empty($estimate->terms)) {
     $pdf->Ln(2);
     $pdf->writeHTMLCell('', '', '', '', $estimate->terms, 0, 1, false, true, 'L', true);
 }
+
+// Add a horizontal line below the two columns (spanning full width)
+$pdf->SetY($pdf->GetY() + 5); // Adjust vertical position
+$pdf->SetLineWidth(0.3); // Line thickness
+$A4_width = 199;
+
+// Set the color for the line (e.g., red color: RGB(255, 0, 0))
+$pdf->SetDrawColor(224,224,224); // Red color (RGB)
+// Draw the horizontal line, respecting the left and right margins
+$pdf->Line($pdf->GetX(), $pdf->GetY(), $A4_width , $pdf->GetY());
+$pdf->ln(5);
+
+
