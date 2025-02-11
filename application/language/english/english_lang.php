@@ -1870,7 +1870,7 @@ $lang['invoice_activity_payment_made_by_staff']                   = 'recorded pa
 $lang['invoice_activity_added_attachment']                        = 'Added attachment';
 
 # Navigation
-$lang['top_search_placeholder'] = 'Search in AccSol | Simplifying Business';
+$lang['top_search_placeholder'] = 'Search in BusiCAD';
 
 # Staff
 $lang['staff_profile_inactive_account'] = 'This staff member account is inactive';
