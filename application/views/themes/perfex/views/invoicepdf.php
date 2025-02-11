@@ -242,6 +242,20 @@ if (count($invoice->payments) > 0 && get_option('show_transactions_on_invoice_pd
     $pdf->Cell(0, 0, _l('invoice_received_payments') . ':', 0, 1, 'L', 0, '', 0);
     $pdf->SetFont($font_name, '', $font_size);
     $pdf->Ln(4);
+    $tblhtml = '<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1.5px solid #424242;
+        padding: 2px;
+    }
+    th {
+        font-weight: bold;
+    }
+    </style>' . $tblhtml;
+    
     $tblhtml = '<table width="100%" border="1" bgcolor="#fff" cellspacing="0" cellpadding="5" border="0">
         <tr height="20"  style="color:#000;border:1px solid #000;">
         <th width="25%;" style="' . $border . '">' . _l('invoice_payments_table_number_heading') . '</th>
