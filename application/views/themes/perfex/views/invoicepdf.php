@@ -270,6 +270,18 @@ if (count($invoice->payments) > 0 && get_option('show_transactions_on_invoice_pd
     $pdf->writeHTML($tblhtml, true, false, false, false, '');
 }
 
+// Add a horizontal line below the two columns (spanning full width)
+$pdf->SetY($pdf->GetY() + 5); // Adjust vertical position
+$pdf->SetLineWidth(0.3); // Line thickness
+$A4_width = 199;
+
+// Set the color for the line (e.g., red color: RGB(255, 0, 0))
+$pdf->SetDrawColor(224,224,224); // Red color (RGB)
+// Draw the horizontal line, respecting the left and right margins
+$pdf->Line($pdf->GetX(), $pdf->GetY(), $A4_width , $pdf->GetY());
+$pdf->ln(5);
+
+
 if (found_invoice_mode($payment_modes, $invoice->id, true, true)) {
     $pdf->Ln(4);
     $pdf->SetFont($font_name, 'B', $font_size);
