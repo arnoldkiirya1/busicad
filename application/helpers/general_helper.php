@@ -112,7 +112,7 @@ function app_archive_short_link($link)
 function get_total_days_overdue($duedate)
 {
     if (Carbon::parse($duedate)->isPast()) {
-        return Carbon::parse($duedate)->diffInDays();
+        return round(Carbon::parse($duedate)->diffInDays());
     }
 
     return 0;
