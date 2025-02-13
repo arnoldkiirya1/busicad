@@ -41,6 +41,16 @@ $proposal_info .= '</div>';
 // Write top left logo and right column info/text
 pdf_multi_row($pdf_logo_url, $proposal_info, $pdf, ($dimensions['wk'] / 2) - $dimensions['lm']);
 
+// Add a horizontal line below the two columns (spanning full width)
+$pdf->SetY($pdf->GetY() + 5); // Adjust vertical position
+$pdf->SetLineWidth(0.3); // Line thickness
+$A4_width = 199;
+
+// Set the color for the line (e.g., red color: RGB(255, 0, 0))
+$pdf->SetDrawColor(224,224,224); // Red color (RGB)
+// Draw the horizontal line, respecting the left and right margins
+$pdf->Line($pdf->GetX(), $pdf->GetY(), $A4_width , $pdf->GetY());
+$pdf->ln(5);
 
 // Proposal to
 $client_details = '<b>' . _l('proposal_to') . '</b>';
