@@ -50,7 +50,6 @@ $A4_width = 199;
 $pdf->SetDrawColor(224,224,224); // Red color (RGB)
 // Draw the horizontal line, respecting the left and right margins
 $pdf->Line($pdf->GetX(), $pdf->GetY(), $A4_width , $pdf->GetY());
-$pdf->ln(0);
 
 // Proposal to
 $client_details = '<b>' . _l('proposal_to') . '</b>';
