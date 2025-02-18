@@ -57,9 +57,9 @@ $client_details .= '<div style="color:#424242;">';
 $client_details .= format_proposal_info($proposal, 'pdf');
 $client_details .= '</div>';
 
-$pdf->writeHTMLCell(($dimensions['wk'] / 2) - $dimensions['lm'], $rowcount * 7, '', ($swap == '1' ? $y : ''), $client_details, 0, 1, false, true, ($swap == '1' ? 'J' : 'R'), true);
+$pdf->writeHTMLCell(($dimensions['wk'] / 2) - $dimensions['lm'], $rowcount * 1, '', ($swap == '1' ? $y : ''), $client_details, 0, 1, false, true, ($swap == '1' ? 'J' : 'R'), true);
 
-$pdf->ln(0);
+$pdf->ln(6);
 
 $proposal_date = _l('proposal_date') . ': ' . _d($proposal->date);
 $open_till     = '';
