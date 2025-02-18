@@ -20,7 +20,7 @@ if (!empty($logo_url)) {
 
     // Position the image in the center of the page
     $x = (210 - $image_width) / 2;
-    $y = (297 - $image_height) / 2;
+    $y = 10;
 
     // Set transparency (watermark effect)
     $pdf->SetAlpha(0.1); // Set alpha for transparency (0.1 is very transparent)
@@ -57,7 +57,7 @@ $client_details .= '<div style="color:#424242;">';
 $client_details .= format_proposal_info($proposal, 'pdf');
 $client_details .= '</div>';
 
-$pdf->writeHTMLCell(($dimensions['wk'] / 2) - $dimensions['lm'], $rowcount * 2, '', ($swap == '1' ? $y : ''), $client_details, 0, 1, false, true, ($swap == '1' ? 'J' : 'R'), true);
+$pdf->writeHTMLCell(($dimensions['wk'] / 2) - $dimensions['lm'], $rowcount * 7, '', ($swap == '1' ? $y : ''), $client_details, 0, 1, false, true, ($swap == '1' ? 'J' : 'R'), true);
 
 $pdf->ln(6);
 
