@@ -20,7 +20,7 @@ if (!empty($logo_url)) {
 
     // Position the image in the center of the page
     $x = (210 - $image_width) / 2;
-    $y = 10;
+    $y = 50;
 
     // Set transparency (watermark effect)
     $pdf->SetAlpha(0.1); // Set alpha for transparency (0.1 is very transparent)
