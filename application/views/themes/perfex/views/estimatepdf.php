@@ -61,7 +61,7 @@ $organization_info = hooks()->apply_filters('estimatepdf_organization_info', $or
 pdf_multi_row($info_left_column, $organization_info, $pdf, ($dimensions['wk'] / 2) - $dimensions['lm']);
 
 // Add a horizontal line below the two columns (spanning full width)
-$pdf->SetY($pdf->GetY() + 5); // Adjust vertical position
+$pdf->SetY($pdf->GetY() + 2); // Adjust vertical position
 $pdf->SetLineWidth(0.3); // Line thickness
 $A4_width = 199;
 
