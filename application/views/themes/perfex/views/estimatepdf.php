@@ -83,6 +83,9 @@ if ($estimate->include_shipping == 1 && $estimate->show_shipping_on_estimate == 
     $estimate_info .= '<br /><b>' . _l('ship_to') . '</b>';
     $estimate_info .= '<div style="color:#424242;">';
     $estimate_info .= format_customer_info($estimate, 'estimate', 'shipping');
+    if (! empty($estimate->reference_no)) {
+        $estimate_info .= _l('reference_no') . ': ' . $estimate->reference_no . '<br/>';
+    }
     $estimate_info .= '</div>';
 }
 
@@ -90,10 +93,6 @@ $info_right_column .= '<br />' . _l('estimate_data_date') . ': ' . _d($estimate-
 
 if (! empty($estimate->expirydate)) {
     $info_right_column .= _l('estimate_data_expiry_date') . ': ' . _d($estimate->expirydate) . '<br />';
-}
-
-if (! empty($estimate->reference_no)) {
-    $info_right_column .= _l('reference_no') . ': ' . $estimate->reference_no . '<br />';
 }
 
 if ($estimate->sale_agent && get_option('show_sale_agent_on_estimates') == 1) {
