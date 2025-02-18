@@ -59,7 +59,7 @@ $client_details .= '</div>';
 
 $pdf->writeHTMLCell(($dimensions['wk'] / 2) - $dimensions['lm'], $rowcount * 7, '', ($swap == '1' ? $y : ''), $client_details, 0, 1, false, true, ($swap == '1' ? 'J' : 'R'), true);
 
-$pdf->ln(6);
+$pdf->ln(0);
 
 $proposal_date = _l('proposal_date') . ': ' . _d($proposal->date);
 $open_till     = '';
