@@ -52,12 +52,12 @@ $pdf->SetDrawColor(224,224,224); // Red color (RGB)
 $pdf->Line($pdf->GetX(), $pdf->GetY(), $A4_width , $pdf->GetY());
 
 // Proposal to
-$client_details = '<b>' . _l('proposal_to') . '</b>';
+$client_details = _l('proposal_to') . '</b>';
 $client_details .= '<div style="color:#424242;">';
 $client_details .= format_proposal_info($proposal, 'pdf');
 $client_details .= '</div>';
 
-$pdf->writeHTMLCell(($dimensions['wk'] / 2) - $dimensions['lm'], $rowcount * 1, '', ($swap == '1' ? $y : ''), $client_details, 0, 1, false, true, ($swap == '1' ? 'J' : 'R'), true);
+$pdf->writeHTMLCell(($dimensions['wk'] / 2) - $dimensions['lm'], $rowcount * 7, '', ($swap == '1' ? $y : ''), $client_details, 0, 1, false, true, ($swap == '1' ? 'J' : 'R'), true);
 
 $pdf->ln(6);
 
