@@ -72,7 +72,7 @@ if (! empty($proposal->open_till)) {
 
 $project = '';
 if ($proposal->project_id != '' && get_option('show_project_on_proposal') == 1) {
-    $project .=  '</b>' . _l('project') . ': ' . get_project_name_by_id($proposal->project_id) . '</b>' . '<br />';
+    $project .=  '<b>' . _l('project') . ': ' . get_project_name_by_id($proposal->project_id) . '</b>' . '<br />';
 }
 
 $qty_heading = _l('estimate_table_quantity_heading', '', false);
