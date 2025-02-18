@@ -52,7 +52,7 @@ $pdf->SetDrawColor(224,224,224); // Red color (RGB)
 $pdf->Line($pdf->GetX(), $pdf->GetY(), $A4_width , $pdf->GetY());
 
 // Proposal to
-$client_details = '<b>' . _l('proposal_to') . '</b>';
+$client_details = '<br><b>' . _l('proposal_to') . '</b>';
 $client_details .= '<div style="color:#424242;">';
 $client_details .= format_proposal_info($proposal, 'pdf');
 $client_details .= '</div>';
