@@ -20,7 +20,7 @@ if (!empty($logo_url)) {
 
     // Position the image in the center of the page
     $x = (210 - $image_width) / 2;
-    $y = 50;
+    $y = 60;
 
     // Set transparency (watermark effect)
     $pdf->SetAlpha(0.1); // Set alpha for transparency (0.1 is very transparent)
@@ -89,7 +89,7 @@ $items_html = $items->table();
 
 $items_html .= '<br /><br />';
 $items_html .= '';
-$items_html .= '<table cellpadding="6" style="font-size:' . ($font_size + 4) . 'px">';
+$items_html .= '<table border="1"  cellpadding="6" style="font-size:' . ($font_size + 4) . 'px">';
 
 $items_html .= '
 <tr>
